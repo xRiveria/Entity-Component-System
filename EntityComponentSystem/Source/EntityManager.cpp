@@ -1,7 +1,7 @@
 #include "ECSPrecompiledHeader.h"
 #include "EntityManager.h"
 
-namespace EntityManager
+namespace EntitySystem
 {
 	Entity EntityManager::RegisterNewEntity()
 	{

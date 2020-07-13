@@ -1,7 +1,7 @@
 #pragma once
 #include "Entity.h"
 
-namespace EntityManager
+namespace EntitySystem
 {
 	// The entity manager exists to keep track of entity IDs to make sure that conflicts don't happen.
 	class EntityManager

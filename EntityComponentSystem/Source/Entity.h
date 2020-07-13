@@ -1,6 +1,6 @@
 #pragma once
 
-namespace EntityManager
+namespace EntitySystem
 {
 	struct Entity
 	{
