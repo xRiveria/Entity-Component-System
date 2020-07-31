@@ -1,20 +1,29 @@
 #include "ECSPrecompiledHeader.h"
+#include "World.h"
 #include "System.h"
 
-void EntitySystem::System::RegisterEntity(const Entity& entity)
+namespace EntitySystem
 {
-	registeredEntities.push_back(entity);
-}
-
-void EntitySystem::System::Unregisterentity(const Entity& entity)
-{
-	for (auto it = registeredEntities.begin(); it != registeredEntities.end(); ++it)
+	void System::RegisterWorld(World* world)
 	{
-		Entity entity = *it;
-		if (entity.entityID == entity.entityID)
+		parentWorld = world;
+	}
+
+	void System::RegisterEntity(const Entity& entity)
+	{
+		registeredEntities.push_back(entity);
+	}
+
+	void System::UnregisterEntity(const Entity& entity)
+	{
+		for (auto it = registeredEntities.begin(); it != registeredEntities.end(); ++it)
 		{
-			registeredEntities.erase(it);
-			return;
+			Entity entity = *it;
+			if (entity.entityID == entity.entityID)
+			{
+				registeredEntities.erase(it);
+				return;
+			}
 		}
 	}
 }
