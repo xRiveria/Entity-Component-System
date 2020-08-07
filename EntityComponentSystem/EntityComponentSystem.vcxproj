@@ -164,9 +164,13 @@
   <ItemGroup>
     <ClInclude Include="Core\ECSPrecompiledHeader.h" />
     <ClInclude Include="Source\Component.h" />
+    <ClInclude Include="Source\ComponentHandle.h" />
+    <ClInclude Include="Source\ComponentManager.h" />
     <ClInclude Include="Source\ComponentMask.h" />
     <ClInclude Include="Source\Entity.h" />
+    <ClInclude Include="Source\EntityHandle.h" />
     <ClInclude Include="Source\EntityManager.h" />
+    <ClInclude Include="Source\EntityMap.h" />
     <ClInclude Include="Source\System.h" />
     <ClInclude Include="Source\World.h" />
   </ItemGroup>

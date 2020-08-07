@@ -1,5 +1,4 @@
 #include "ECSPrecompiledHeader.h"
-#include "World.h"
 #include "System.h"
 
 namespace EntitySystem
@@ -26,4 +25,7 @@ namespace EntitySystem
 			}
 		}
 	}
+
+	ComponentMask System::GetSignature() { return signature; }
 }
+

@@ -1,6 +1,9 @@
 #include "ECSPrecompiledHeader.h"
 #include "World.h"
 #include "EntityManager.h"
+#include "ComponentMask.h"
+#include "EntityHandle.h"
+#include "System.h"
 
 namespace EntitySystem
 {
@@ -10,7 +13,7 @@ namespace EntitySystem
 	{
 		for (auto& system : systems)
 		{
-			system->Init();
+			system->Initialize();
 		}
 	}
 
@@ -30,7 +33,8 @@ namespace EntitySystem
 		}
 	}
 
-	//EntityHandle World::createEntity() { return entityManager->}
+	EntityHandle World::CreateEntity() { return { entityManager->RegisterNewEntity(), this }; }
+
 	void World::DestroyEntity(EntitySystem::Entity entity)
 	{
 		for (auto& system : systems)
@@ -47,10 +51,20 @@ namespace EntitySystem
 		systems.push_back(std::move(system));
 	}
 
-	//void World::UpdateEntityMask()
-	//{
-//
-	//}
+	void World::UpdateEntityMask(EntitySystem::Entity const& entity, EntitySystem::ComponentMask oldMask) {
+		ComponentMask newMask = entityMasks[entity];
 
-
+		for (auto& system : systems) {
+			ComponentMask systemSignature = system->GetSignature();
+			if (newMask.IsNewMatch(oldMask, systemSignature)) {
+				// We match but didn't match before
+				system->RegisterEntity(entity);
+			}
+			else if (newMask.IsNoLongerMatched(oldMask, systemSignature)) {
+				system->UnregisterEntity(entity);
+			}
+		}
+	}
 }
+
+

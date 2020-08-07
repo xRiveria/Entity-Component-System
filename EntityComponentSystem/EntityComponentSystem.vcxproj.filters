@@ -36,6 +36,18 @@
     <ClInclude Include="Source\ComponentMask.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\EntityHandle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ComponentHandle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ComponentManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\EntityMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\ECSPrecompiledHeader.cpp">

@@ -27,6 +27,6 @@ namespace EntitySystem
 	template <typename ComponentFamily>
 	static int GetComponentFamily()
 	{
-		return Component<typename std::remove_const<ComponentFamily>::type>::family();
+		return Component<typename std::remove_const<ComponentFamily>::type>::ComponentFamily();
 	}
 }
